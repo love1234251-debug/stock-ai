@@ -135,7 +135,7 @@ canvas{max-width:100%}
 .auth-tabs button{border:0;background:transparent;color:var(--muted);padding:8px;border-radius:9px}.auth-tabs button.active{background:#17324a;color:white}.auth-form{display:grid;gap:11px}.auth-form label{font-size:12px;color:#a9bfce}.auth-form input{width:100%;margin-top:5px;background:#07131d;color:white;border:1px solid var(--line);border-radius:10px;padding:11px;outline:none}.auth-form input:focus{border-color:#4d89c5}.auth-error{min-height:18px;color:#ff8790;font-size:12px}.auth-note{margin-top:13px;padding:10px;border-radius:10px;background:rgba(246,196,83,.07);border:1px solid rgba(246,196,83,.18);color:#d8c98d;font-size:11px;line-height:1.55}
 .profile-panel{display:none}.profile-panel.open{display:block}.profile-box{padding:12px;border:1px solid rgba(255,255,255,.07);background:#091621;border-radius:12px;margin:10px 0}.profile-box b{display:block;margin-bottom:4px}.profile-box small{color:var(--muted)}
 .portfolio-form{display:grid;grid-template-columns:1.2fr .8fr .8fr auto;gap:9px;align-items:end}.portfolio-form label{font-size:12px;color:var(--muted)}.portfolio-form input{width:100%;margin-top:5px;background:#07131d;color:white;border:1px solid var(--line);border-radius:9px;padding:9px}.danger{color:#ff8c94!important;border-color:rgba(255,77,90,.25)!important}.login-gate{padding:28px;text-align:center}.login-gate h3{margin:0 0 6px}.login-gate p{color:var(--muted);margin:0 0 14px}
-.mobile-nav{display:none}
+.mobile-nav,.mobile-more-backdrop,.mobile-more-sheet{display:none}
 @media(max-width:1100px){
   .nav{display:none}.hamb{display:block}.search-wrap{min-width:220px;margin-left:0}
   .kpis,.analysis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -143,15 +143,29 @@ canvas{max-width:100%}
   .rank-grid{grid-template-columns:1fr 1fr}.watch-grid{grid-template-columns:1fr 1fr}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
-  body{padding-bottom:70px}.topbar{padding:10px 12px;gap:9px}.brand span.brand-text{display:none}.search-wrap{flex:1;min-width:0}.hamb{display:none}
-  .banner{margin:10px 12px 0;border-radius:10px}.main{padding:14px 12px 24px}.page-head{align-items:flex-start;flex-direction:column}.page-head h1{font-size:23px}
-  .kpis{grid-template-columns:1fr 1fr}.kpi{min-height:98px;padding:13px}.kpi .value{font-size:22px}
-  .rank-grid,.watch-grid,.analysis-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .filters{grid-template-columns:1fr}.quote .price{font-size:32px}.ai-points{grid-template-columns:1fr}.spark{width:130px}
-  #kline{height:360px}.chart-card{padding:10px}.indicators{max-height:78px;overflow:auto}
-  .mobile-nav{position:fixed;z-index:50;left:8px;right:8px;bottom:8px;display:grid;grid-template-columns:repeat(6,1fr);background:rgba(8,18,27,.95);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:6px;backdrop-filter:blur(18px)}
-  .mobile-nav button{border:0;background:transparent;color:#7890a3;padding:8px 3px;border-radius:10px;font-size:10px}.mobile-nav button.active{background:#153047;color:white}
-  .mobile-nav b{display:block;font-size:16px;margin-bottom:2px}.chat{height:65vh}.account-btn{padding:7px 9px}.account-btn .acct-label{display:none}.portfolio-form{grid-template-columns:1fr 1fr}.portfolio-form .btn{grid-column:1/-1}
+  body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  .topbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;padding:max(8px,env(safe-area-inset-top)) 12px 10px}
+  .brand{grid-column:1;grid-row:1;gap:8px;font-size:16px}.brand span.brand-text{display:inline}.logo{width:30px;height:30px;border-radius:9px}.brand .demo-badge{padding:3px 6px;font-size:9px}
+  .account-btn{grid-column:2;grid-row:1;padding:5px 7px}.account-btn .acct-label{display:none}.account-btn .avatar{width:28px;height:28px}
+  .search-wrap{grid-column:1/-1;grid-row:2;width:100%;min-width:0;margin:0}.search{height:42px;padding:10px 44px 10px 14px;border-radius:13px}.search-btn{width:34px;height:34px;top:4px;right:4px}
+  .hamb{display:none}.banner{margin:8px 12px 0;padding:9px 11px;border-radius:11px;font-size:11px;line-height:1.45}.data-banner{align-items:flex-start}.data-banner>span{flex:1 1 100%}.data-banner .actions{width:100%;margin-left:0;justify-content:space-between}
+  .main{padding:12px 12px 30px}.page-head{align-items:flex-start;flex-direction:column;gap:9px;margin:2px 0 12px}.page-head h1{font-size:21px}.page-head p{font-size:13px;line-height:1.45}
+  .grid{gap:9px}.card{border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.2)}.pad{padding:13px}.section-title{margin-bottom:10px}.section-title h2,.section-title h3{font-size:15px}
+  .home-grid,.rank-grid{margin-top:10px}.kpis{grid-template-columns:1fr 1fr;gap:8px}.kpi{min-height:82px;padding:11px}.kpi .label{font-size:11px;margin-bottom:6px}.kpi .value{font-size:19px;letter-spacing:-.2px}.kpi .sub{font-size:11px;margin-top:5px}
+  .rank-grid,.watch-grid{grid-template-columns:1fr}.analysis-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px}.analysis-card{padding:11px;min-height:72px}.analysis-card .v{font-size:13px;line-height:1.35}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px;gap:8px}.stat{padding:10px}.stat .v{font-size:14px;margin-top:4px}#stockStats .stat:last-child:nth-child(odd){grid-column:1/-1}
+  .stock-head{gap:10px}.stock-title{gap:8px;flex-wrap:wrap}.stock-title h1{font-size:22px}.quote{gap:8px}.quote .price{font-size:29px}.stock-head>.actions{width:100%}.stock-head>.actions .btn{flex:1;padding:8px}
+  .stock-layout{margin-top:10px}.chart-card{padding:10px}.chart-toolbar{align-items:stretch;gap:7px;flex-direction:column}.seg{align-self:flex-start}.indicators{display:flex;flex-wrap:nowrap;width:100%;max-height:none;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.indicators::-webkit-scrollbar{display:none}.ind-btn{flex:0 0 auto;padding:6px 9px}
+  #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}
+  .filters{grid-template-columns:1fr 1fr;gap:8px}.filter{padding:10px}.ai-summary{padding:14px}.ai-points{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ai-point{padding:10px;font-size:13px}.spark{width:120px}
+  .watch-card{padding:13px}.watch-card .big{font-size:22px}.login-gate{padding:22px 14px}.empty{padding:24px 12px}
+  .table-wrap{overflow:visible}.table-wrap table{display:block;min-width:0}.table-wrap thead{display:none}.table-wrap tbody{display:grid;gap:8px}.table-wrap tr{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 14px;width:100%;padding:12px;background:#0a1722;border:1px solid rgba(255,255,255,.07);border-radius:12px}
+  .table-wrap td{display:flex;min-width:0;flex-direction:column;gap:3px;padding:0;border:0;text-align:left;font-size:13px;overflow-wrap:anywhere}.table-wrap td::before{content:attr(data-label);color:var(--muted);font-size:10px;line-height:1.2}.table-wrap td:first-child{grid-column:1/-1;padding-right:34px}.table-wrap td:first-child::before{display:none}.table-wrap td[data-label=""]{position:absolute;right:10px;top:8px;width:auto;padding:0}.table-wrap td.table-empty-cell{position:static;grid-column:1/-1;width:100%;padding:18px 8px}.table-wrap td.table-empty-cell::before{display:none}
+  .mobile-more-backdrop{position:fixed;z-index:48;inset:0;background:rgba(2,7,12,.58);backdrop-filter:blur(3px)}.mobile-more-backdrop.open{display:block}
+  .mobile-more-sheet{position:fixed;z-index:49;left:12px;right:12px;bottom:calc(78px + env(safe-area-inset-bottom));padding:14px;background:rgba(12,25,37,.98);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 22px 60px rgba(0,0,0,.5)}.mobile-more-sheet.open{display:block}.mobile-more-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.mobile-more-head strong{font-size:15px}.mobile-more-close{border:0;background:transparent;color:var(--muted);font-size:22px}.mobile-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mobile-more-grid button{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#0a1722;color:#dceaf3;padding:13px;border-radius:12px;text-align:left}.mobile-more-grid b{font-size:18px;color:#a9d0ff}
+  .mobile-nav{position:fixed;z-index:50;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);background:rgba(8,18,27,.96);border:1px solid rgba(255,255,255,.1);border-radius:17px;padding:5px;box-shadow:0 12px 38px rgba(0,0,0,.4);backdrop-filter:blur(18px)}
+  .mobile-nav button{min-width:0;min-height:52px;border:0;background:transparent;color:#7890a3;padding:6px 2px;border-radius:11px;font-size:10px}.mobile-nav button.active{background:#153047;color:white}.mobile-nav b{display:block;font-size:17px;margin-bottom:2px}
+  .chat{height:62vh}.chat-input{padding:9px;gap:6px}.chat-input input{min-width:0}.portfolio-form{grid-template-columns:1fr 1fr}.portfolio-form .btn{grid-column:1/-1}.footer{padding:0 14px 18px;font-size:10px;line-height:1.5}
 }
 </style>
 </head>
@@ -162,7 +176,7 @@ canvas{max-width:100%}
     <nav class="nav" id="desktopNav"></nav>
     <div class="search-wrap">
       <input id="globalSearch" class="search" placeholder="搜尋 2330 或 台積電" autocomplete="off">
-      <button class="search-btn" id="searchBtn">⌕</button>
+      <button class="search-btn" id="searchBtn" type="button" aria-label="搜尋股票">⌕</button>
     </div>
     <button class="account-btn" id="accountBtn"><span class="avatar" id="accountAvatar">人</span><span class="acct-label" id="accountLabel">登入</span></button>
   </header>
@@ -299,7 +313,12 @@ canvas{max-width:100%}
     </div>
   </div>
 
-  <div class="mobile-nav" id="mobileNav"></div>
+  <div class="mobile-more-backdrop" id="mobileMoreBackdrop" aria-hidden="true" onclick="closeMobileMore()"></div>
+  <div class="mobile-more-sheet" id="mobileMoreSheet" aria-hidden="true">
+    <div class="mobile-more-head"><strong>更多功能</strong><button class="mobile-more-close" type="button" aria-label="關閉更多功能" onclick="closeMobileMore()">×</button></div>
+    <div class="mobile-more-grid" id="mobileMoreGrid"></div>
+  </div>
+  <div class="mobile-nav" id="mobileNav" aria-label="主要導覽"></div>
   <footer class="footer">Stock AI Demo — 僅供產品原型與介面驗證，不構成任何投資建議。真實上線前應串接合法、可驗證、具時間戳記的行情與財報資料來源。</footer>
 </div>
 
@@ -318,6 +337,8 @@ const DATA = {
   ]
 };
 const navs=[["home","首頁","⌂"],["market","市場","▦"],["screener","選股","⌁"],["watchlist","自選股","★"],["portfolio","投資組合","◫"],["ai","AI研究室","✦"]];
+const mobilePrimaryIds=["home","market","screener","watchlist"];
+const mobileMoreIds=new Set(["portfolio","ai"]);
 const LIVE={mode:"demo",provider:"Demo",asOf:null,universe:[],contexts:new Map(),syncing:false,error:null};
 let current="2330",period="D";
 let activeIndicators=new Set(["MA5","MA20","MA60","成交量"]);
@@ -356,16 +377,30 @@ function updateStockStar(){const el=$("#stockStar"); if(!el)return; let on=watch
 function go(id){
   if((id==="watchlist"||id==="portfolio")&&!requireAuth("請先登入使用個人資料功能")) return;
   if(id==="stock") id="stock";
+  closeMobileMore();
   $$(".page").forEach(p=>p.classList.remove("active")); $("#page-"+id).classList.add("active");
-  $$("[data-nav]").forEach(b=>b.classList.toggle("active",b.dataset.nav===id));
+  $$("[data-nav]").forEach(b=>b.classList.toggle("active",b.dataset.nav===id||(b.dataset.nav==="more"&&mobileMoreIds.has(id))));
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="stock") setTimeout(drawKline,30);
 }
 function openStock(code){current=code;renderStock();go("stock");loadStockContext(code)}
+function toggleMobileMore(){
+  const sheet=$("#mobileMoreSheet"),backdrop=$("#mobileMoreBackdrop"),button=$("[data-nav='more']"),open=!sheet.classList.contains("open");
+  sheet.classList.toggle("open",open);backdrop.classList.toggle("open",open);sheet.setAttribute("aria-hidden",String(!open));backdrop.setAttribute("aria-hidden",String(!open));button?.setAttribute("aria-expanded",String(open));
+}
+function closeMobileMore(){
+  const sheet=$("#mobileMoreSheet"),backdrop=$("#mobileMoreBackdrop"),button=$("[data-nav='more']");if(!sheet||!backdrop)return;
+  sheet.classList.remove("open");backdrop.classList.remove("open");sheet.setAttribute("aria-hidden","true");backdrop.setAttribute("aria-hidden","true");button?.setAttribute("aria-expanded","false");
+}
 function renderNav(){
   $("#desktopNav").innerHTML=navs.map(([id,label])=>`<button data-nav="${id}" onclick="go('${id}')">${label}</button>`).join("");
-  $("#mobileNav").innerHTML=navs.map(([id,label,icon])=>`<button data-nav="${id}" onclick="go('${id}')"><b>${icon}</b>${label}</button>`).join("");
+  const primary=navs.filter(([id])=>mobilePrimaryIds.includes(id));
+  $("#mobileNav").innerHTML=primary.map(([id,label,icon])=>`<button data-nav="${id}" onclick="go('${id}')"><b>${icon}</b>${label}</button>`).join("")+`<button data-nav="more" type="button" aria-haspopup="dialog" aria-expanded="false" onclick="toggleMobileMore()"><b>•••</b>更多</button>`;
+  $("#mobileMoreGrid").innerHTML=navs.filter(([id])=>mobileMoreIds.has(id)).map(([id,label,icon])=>`<button type="button" onclick="go('${id}')"><b>${icon}</b><span>${label}</span></button>`).join("");
   $$("[data-nav='home']").forEach(x=>x.classList.add("active"));
+}
+function labelResponsiveTables(root=document){
+ root.querySelectorAll(".table-wrap table").forEach(table=>{const labels=[...table.querySelectorAll("thead th")].map(th=>th.textContent.trim());table.querySelectorAll("tbody tr").forEach(row=>[...row.children].forEach((cell,i)=>{cell.classList.toggle("table-empty-cell",cell.colSpan>1);cell.dataset.label=cell.colSpan>1?"":labels[i]||""}))});
 }
 function row(s,extra=""){
  return `<tr><td><button class="stock-link" onclick="openStock('${s.code}')"><span class="ticker">${s.name}</span> <span class="code">${s.code}</span></button></td><td>${fmt(s.price)}</td><td class="${cls(s.pct)}">${pct(s.pct)}</td><td>${fmt(s.volume)}</td>${extra}</tr>`
@@ -401,7 +436,7 @@ function renderRank(sel,arr,type){
 function renderHomeWatch(){
  if(!AUTH.user){$("#homeWatch").innerHTML=`<div class="login-gate"><h3>登入後使用個人自選股</h3><p>分享網站給別人時，每個人都能建立自己的收藏。</p><button class="btn primary" onclick="openAuth()">登入 / 註冊</button></div>`;return}
  const pool=LIVE.mode==="official"?LIVE.universe:DATA.stocks; const arr=pool.filter(s=>watchSet().has(s.code));
- $("#homeWatch").innerHTML=arr.length?`<div class="table-wrap"><table><thead><tr><th>股票</th><th>價格</th><th>漲跌幅</th><th>AI分數</th><th></th></tr></thead><tbody>${arr.map(s=>row(s,`<td>${scoreTotal(s)}</td><td><button class="star on" onclick="toggleWatch('${s.code}')">★</button></td>`)).join("")}</tbody></table></div>`:`<div class="empty">尚未加入自選股</div>`;
+ $("#homeWatch").innerHTML=arr.length?`<div class="table-wrap"><table><thead><tr><th>股票</th><th>價格</th><th>漲跌幅</th><th>AI分數</th><th></th></tr></thead><tbody>${arr.map(s=>`<tr><td><button class="stock-link" onclick="openStock('${s.code}')"><span class="ticker">${s.name}</span> <span class="code">${s.code}</span></button></td><td>${fmt(s.price)}</td><td class="${cls(s.pct)}">${pct(s.pct)}</td><td>${scoreTotal(s)}</td><td><button class="star on" onclick="toggleWatch('${s.code}')">★</button></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">尚未加入自選股</div>`;
 }
 function renderMarket(){
  const m=DATA.market;$("#marketKpis").innerHTML=[
@@ -496,8 +531,8 @@ function toggleIndicator(i){activeIndicators.has(i)?activeIndicators.delete(i):a
 function ma(vals,n){return vals.map((_,i)=>i<n-1?null:vals.slice(i-n+1,i+1).reduce((a,b)=>a+b,0)/n)}
 function drawKline(){
  const c=$("#kline"); if(!c||!$("#page-stock").classList.contains("active"))return;
- const rect=c.getBoundingClientRect(),dpr=window.devicePixelRatio||1;c.width=Math.max(700,rect.width*dpr);c.height=Math.max(360,rect.height*dpr);
- const x=c.getContext("2d");x.scale(dpr,dpr);let W=c.width/dpr,H=c.height/dpr;
+ const rect=c.getBoundingClientRect(),dpr=window.devicePixelRatio||1,W=Math.max(280,rect.width),H=Math.max(240,rect.height);c.width=Math.round(W*dpr);c.height=Math.round(H*dpr);
+ const x=c.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);
  x.clearRect(0,0,W,H);x.fillStyle="#07131d";x.fillRect(0,0,W,H);
  const s=stock(current),data=candleData(s,period),pad={l:48,r:14,t:18,b:42},volH=activeIndicators.has("成交量")?78:0,chartH=H-pad.t-pad.b-volH;
  let max=Math.max(...data.map(d=>d.h)),min=Math.min(...data.map(d=>d.l));max*=1.01;min*=.99;
@@ -574,13 +609,15 @@ function searchNow(){let s=stock($("#globalSearch").value); if(s){openStock(s.co
 document.addEventListener("click",e=>{
  if(e.target.matches("#periodSeg button")){$$("#periodSeg button").forEach(b=>b.classList.remove("active"));e.target.classList.add("active");period=e.target.dataset.period;drawKline()}
 });
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMobileMore()});
+const responsiveTableObserver=new MutationObserver(()=>labelResponsiveTables());responsiveTableObserver.observe($(".main"),{childList:true,subtree:true});
 $("#stockStar").onclick=toggleCurrentWatch;
 $("#searchBtn").onclick=searchNow;$("#globalSearch").addEventListener("keydown",e=>{if(e.key==="Enter")searchNow()});
 $("#runScreen").onclick=runScreen;$("#sendChat").onclick=()=>{let v=$("#chatInput").value.trim();if(v){$("#chatInput").value="";ask(v)}};$("#chatInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("#sendChat").click()});
 $("#refreshData").onclick=syncOfficialData;
 $("#accountBtn").onclick=()=>openAuth(!!AUTH.user);$("#authClose").onclick=closeAuth;$("#closeProfile").onclick=closeAuth;$("#logoutBtn").onclick=logout;$("#loginTab").onclick=()=>setAuthMode("login");$("#registerTab").onclick=()=>setAuthMode("register");$("#authSubmit").onclick=submitAuth;$("#authPassword").addEventListener("keydown",e=>{if(e.key==="Enter")submitAuth()});$("#authOverlay").addEventListener("click",e=>{if(e.target.id==="authOverlay")closeAuth()});$("#addHolding").onclick=addHolding;
 window.addEventListener("resize",()=>{if($("#page-stock").classList.contains("active"))drawKline()});
-loadSession();renderNav();renderHome();renderHomeWatch();renderMarket();renderStock();renderFilters();renderWatch();renderPortfolio();initChat();syncOfficialData();
+loadSession();renderNav();renderHome();renderHomeWatch();renderMarket();renderStock();renderFilters();renderWatch();renderPortfolio();initChat();labelResponsiveTables();syncOfficialData();
 </script>
 </body>
 </html>
