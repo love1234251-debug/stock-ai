@@ -100,6 +100,7 @@ canvas{max-width:100%}
 .analysis-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:14px}
 .analysis-card{padding:14px}.analysis-card .k{color:var(--muted);font-size:12px}.analysis-card .v{margin-top:7px;font-weight:700}
 .long-ai{margin-top:14px;padding:17px;line-height:1.75}
+.news-card{margin-top:14px;padding:17px}.news-list{display:grid;gap:9px}.news-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 14px;padding:12px;border-radius:12px;background:#0a1722;border:1px solid rgba(255,255,255,.06)}.news-item a{font-weight:700;line-height:1.45}.news-item a:hover{color:#a9d0ff}.news-meta{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:11px}.news-note{margin-top:10px;color:var(--muted);font-size:11px;line-height:1.5}
 .filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .filter{padding:12px;background:#0a1722;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
 .filter label{display:flex;align-items:center;gap:8px;color:#c8d8e4;font-size:13px}
@@ -156,7 +157,7 @@ canvas{max-width:100%}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px;gap:8px}.stat{padding:10px}.stat .v{font-size:14px;margin-top:4px}#stockStats .stat:last-child:nth-child(odd){grid-column:1/-1}
   .stock-head{gap:10px}.stock-title{gap:8px;flex-wrap:wrap}.stock-title h1{font-size:22px}.quote{gap:8px}.quote .price{font-size:29px}.stock-head>.actions{width:100%}.stock-head>.actions .btn{flex:1;padding:8px}
   .stock-layout{margin-top:10px}.chart-card{padding:10px}.chart-toolbar{align-items:stretch;gap:7px;flex-direction:column}.seg{align-self:flex-start}.indicators{display:flex;flex-wrap:nowrap;width:100%;max-height:none;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.indicators::-webkit-scrollbar{display:none}.ind-btn{flex:0 0 auto;padding:6px 9px}
-  #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}
+  #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai,.news-card{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}.news-item{grid-template-columns:1fr;padding:11px}.news-meta{grid-column:1}
   .filters{grid-template-columns:1fr 1fr;gap:8px}.filter{padding:10px}.ai-summary{padding:14px}.ai-points{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ai-point{padding:10px;font-size:13px}.spark{width:120px}
   .watch-card{padding:13px}.watch-card .big{font-size:22px}.login-gate{padding:22px 14px}.empty{padding:24px 12px}
   .table-wrap{overflow:visible}.table-wrap table{display:block;min-width:0}.table-wrap thead{display:none}.table-wrap tbody{display:grid;gap:8px}.table-wrap tr{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 14px;width:100%;padding:12px;background:#0a1722;border:1px solid rgba(255,255,255,.07);border-radius:12px}
@@ -240,6 +241,11 @@ canvas{max-width:100%}
       </div>
       <div class="grid analysis-grid" id="analysisGrid"></div>
       <div class="card long-ai" id="stockAiSummary"></div>
+      <div class="card news-card">
+        <div class="section-title"><h2>相關新聞</h2><span class="demo-badge source-live">FinMind</span></div>
+        <div class="news-list" id="stockNews"><div class="empty">開啟個股後載入相關新聞</div></div>
+        <div class="news-note">新聞僅列出來源與原文，不代表 Stock AI 已確認新聞與價格變動之間的因果關係。</div>
+      </div>
     </section>
 
     <section class="page" id="page-screener">
@@ -339,6 +345,7 @@ const DATA = {
 const navs=[["home","首頁","⌂"],["market","市場","▦"],["screener","選股","⌁"],["watchlist","自選股","★"],["portfolio","投資組合","◫"],["ai","AI研究室","✦"]];
 const mobilePrimaryIds=["home","market","screener","watchlist"];
 const mobileMoreIds=new Set(["portfolio","ai"]);
+const NEWS={code:null,items:[],loading:false,error:null};
 const LIVE={mode:"demo",provider:"Demo",asOf:null,universe:[],contexts:new Map(),syncing:false,error:null};
 let current="2330",period="D";
 let activeIndicators=new Set(["MA5","MA20","MA60","成交量"]);
@@ -383,7 +390,7 @@ function go(id){
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="stock") setTimeout(drawKline,30);
 }
-function openStock(code){current=code;renderStock();go("stock");loadStockContext(code)}
+function openStock(code){current=code;renderStock();go("stock");loadStockContext(code);loadStockNews(code)}
 function toggleMobileMore(){
   const sheet=$("#mobileMoreSheet"),backdrop=$("#mobileMoreBackdrop"),button=$("[data-nav='more']"),open=!sheet.classList.contains("open");
   sheet.classList.toggle("open",open);backdrop.classList.toggle("open",open);sheet.setAttribute("aria-hidden",String(!open));backdrop.setAttribute("aria-hidden",String(!open));button?.setAttribute("aria-expanded",String(open));
@@ -401,6 +408,20 @@ function renderNav(){
 }
 function labelResponsiveTables(root=document){
  root.querySelectorAll(".table-wrap table").forEach(table=>{const labels=[...table.querySelectorAll("thead th")].map(th=>th.textContent.trim());table.querySelectorAll("tbody tr").forEach(row=>[...row.children].forEach((cell,i)=>{cell.classList.toggle("table-empty-cell",cell.colSpan>1);cell.dataset.label=cell.colSpan>1?"":labels[i]||""}))});
+}
+function escapeHtml(value){return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[char]))}
+function renderStockNews(){
+ const el=$("#stockNews");if(!el)return;
+ if(NEWS.loading){el.innerHTML=`<div class="empty">正在載入 ${escapeHtml(NEWS.code)} 相關新聞…</div>`;return}
+ if(NEWS.error){el.innerHTML=`<div class="empty">新聞暫時無法取得，稍後可再重新開啟個股頁。</div>`;return}
+ if(!NEWS.items.length){el.innerHTML=`<div class="empty">最近幾天沒有找到這檔股票的相關新聞。</div>`;return}
+ el.innerHTML=NEWS.items.map(item=>`<article class="news-item"><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a><div class="news-meta"><span>${escapeHtml(item.source)}</span><span>${escapeHtml((item.date||"").replace("T"," ").slice(0,16))}</span></div></article>`).join("");
+}
+async function loadStockNews(code){
+ NEWS.code=code;NEWS.items=[];NEWS.error=null;NEWS.loading=true;renderStockNews();
+ try{const response=await fetch(`/api/news?stock_id=${encodeURIComponent(code)}`);const payload=await response.json();if(!response.ok||!payload.ok)throw new Error(payload.error||"News unavailable");if(current!==code)return;NEWS.items=Array.isArray(payload.news)?payload.news:[]}
+ catch(error){if(current===code)NEWS.error=error.message||String(error)}
+ finally{if(current===code){NEWS.loading=false;renderStockNews()}}
 }
 function row(s,extra=""){
  return `<tr><td><button class="stock-link" onclick="openStock('${s.code}')"><span class="ticker">${s.name}</span> <span class="code">${s.code}</span></button></td><td>${fmt(s.price)}</td><td class="${cls(s.pct)}">${pct(s.pct)}</td><td>${fmt(s.volume)}</td>${extra}</tr>`
