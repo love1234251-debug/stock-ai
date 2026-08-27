@@ -122,7 +122,7 @@ canvas{max-width:100%}
 .chat-input input{flex:1;background:#07131d;border:1px solid var(--line);color:white;border-radius:10px;padding:10px}
 .prompt-list{display:grid;gap:8px}.prompt{padding:10px;border:1px solid var(--line);background:#0a1722;color:#c4d8e7;border-radius:10px;text-align:left}
 .api-list{display:grid;gap:8px}.api{display:flex;justify-content:space-between;gap:10px;padding:11px;border-radius:11px;background:#0a1722;border:1px solid rgba(255,255,255,.06)}
-.api span:last-child{color:#e6bf5a}
+.api-status{white-space:nowrap;font-weight:700}.api-status.connected{color:#81e9b4}.api-status.pending{color:#ffd773}
 .empty{padding:36px;text-align:center;color:var(--muted)}
 .footer{max-width:1480px;margin:0 auto;padding:0 20px 30px;color:#6f8799;font-size:12px}
 
@@ -282,7 +282,7 @@ canvas{max-width:100%}
     </section>
 
     <section class="page" id="page-ai">
-      <div class="page-head"><div><h1>AI 研究室</h1><p>回答會列出分析依據；目前僅使用網站內 Demo 數據</p></div><span class="pill">禁止無資料推論</span></div>
+      <div class="page-head"><div><h1>AI 研究室</h1><p>回答會列出分析依據；行情、歷史與新聞皆標示資料來源</p></div><span class="pill">禁止無資料推論</span></div>
       <div class="grid chat-layout">
         <div class="card chat">
           <div class="messages" id="messages"></div>
@@ -290,7 +290,7 @@ canvas{max-width:100%}
         </div>
         <div class="grid" style="align-content:start">
           <div class="card pad"><div class="section-title"><h3>快捷問題</h3></div><div class="prompt-list" id="promptList"></div></div>
-          <div class="card pad"><div class="section-title"><h3>未來 API 架構</h3></div><div class="api-list"><div class="api"><span>TWSE 盤後行情</span><span class="up">已接入</span></div><div class="api"><span>FinMind 歷史/營收/法人</span><span class="up">已接入</span></div><div class="api"><span>新聞 API</span><span>待接入</span></div><div class="api"><span>AI API</span><span>待接入</span></div></div></div>
+          <div class="card pad"><div class="section-title"><h3>資料／API 狀態</h3></div><div class="api-list"><div class="api"><span>TWSE 盤後行情</span><span class="api-status connected">已接入</span></div><div class="api"><span>FinMind 歷史/營收/法人</span><span class="api-status connected">已接入</span></div><div class="api"><span>FinMind 個股新聞</span><span class="api-status connected">已接入</span></div><div class="api"><span>外部 AI API</span><span class="api-status pending">待接入</span></div></div></div>
         </div>
       </div>
     </section>
@@ -324,7 +324,7 @@ canvas{max-width:100%}
     <div class="mobile-more-grid" id="mobileMoreGrid"></div>
   </div>
   <div class="mobile-nav" id="mobileNav" aria-label="主要導覽"></div>
-  <footer class="footer">Stock AI Demo — 僅供產品原型與介面驗證，不構成任何投資建議。真實上線前應串接合法、可驗證、具時間戳記的行情與財報資料來源。</footer>
+  <footer class="footer">Stock AI Demo — 僅供研究與介面展示，不構成任何投資建議。行情與新聞皆標示資料來源與時間，使用前請自行查證。</footer>
 </div>
 
 <script>
@@ -614,10 +614,10 @@ function aiReply(q){
  if(s){
    if(LIVE.mode==="official" && !s.analysisReady) return `${s.name}（${s.code}）目前已取得 TWSE 官方盤後價格，但 FinMind 歷史/法人/月營收資料尚未完整載入，因此我不會先下技術面或籌碼結論。請先開啟該個股頁讓資料載入完成。<div class="basis">分析依據：TWSE snapshot only；缺少歷史序列時不推論。</div>`;
    let total=scoreTotal(s);
-   if(/為什麼.*上漲|上漲.*為什麼/.test(q)) return `${s.name}在 Demo 資料中的漲幅為 <span class="${cls(s.pct)}">${pct(s.pct)}</span>。可觀察到：成交量變化 ${s.volumeInc>0?"+":""}${s.volumeInc}%、外資 ${s.foreign>0?"買超":"賣超"} ${Math.abs(s.foreign)} 張、投信 ${s.trust>0?"買超":"賣超"} ${Math.abs(s.trust)} 張、月營收年增 ${s.revenueYoY}%。這些資料顯示${s.pct>0?"價格上漲同時伴隨一定程度的量能或法人支持，但不能單憑 Demo 資料證明唯一因果":"目前並非上漲狀態"}。<div class="basis">分析依據：漲跌幅、成交量變化、法人買賣超、月營收年增率。未使用假新聞或自行補原因。</div>`;
+   if(/為什麼.*上漲|上漲.*為什麼/.test(q)) return `${s.name}在目前${LIVE.mode==="official"?" TWSE + FinMind":" Demo"}資料中的漲幅為 <span class="${cls(s.pct)}">${pct(s.pct)}</span>。可觀察到：成交量變化 ${s.volumeInc>0?"+":""}${s.volumeInc}%、外資 ${s.foreign>0?"買超":"賣超"} ${Math.abs(s.foreign)} 張、投信 ${s.trust>0?"買超":"賣超"} ${Math.abs(s.trust)} 張、月營收年增 ${s.revenueYoY}%。這些資料顯示${s.pct>0?"價格上漲同時伴隨一定程度的量能或法人支持，但不能只憑這些資料證明唯一因果":"目前並非上漲狀態"}。<div class="basis">分析依據：漲跌幅、成交量變化、法人買賣超、月營收年增率。個股新聞已列在個股頁，但不會自動視為上漲原因。</div>`;
    return `${s.name}（${s.code}）目前 Stock AI Demo 綜合分數 <b>${total}</b>，評級「${grade(total)}」。技術面：價格 ${s.price>s.ma20?"高於":"低於"} MA20（${s.ma20}）、MA20 ${s.ma20>s.ma60?"高於":"低於"} MA60（${s.ma60}）、RSI ${s.rsi}、MACD ${s.macdCross?"黃金交叉":"未黃金交叉"}。短線判斷為「${s.short}」，支撐約 ${s.support}、壓力約 ${s.resistance}。<div class="basis">分析依據：網站目前載入的價格、MA20、MA60、RSI、MACD、支撐/壓力與 Stock AI 規則分數；真實模式下來源為 TWSE + FinMind。</div>`;
  }
- return `我目前只能依網站內的 Demo 股票資料分析。你可以輸入股票代號或名稱，例如「2330現在技術面如何？」；若問題需要新聞、即時行情或網站沒有的財報欄位，我不會自行捏造。<div class="basis">資料限制：目前未接入 TWSE、FinMind、新聞 API 或外部 AI API。</div>`;
+ return `我只會依網站已載入的 TWSE、FinMind 或 Demo 備援資料分析。你可以輸入股票代號或名稱，例如「2330現在技術面如何？」；網站沒有的欄位或因果關係，我不會自行捏造。<div class="basis">已接入：TWSE 盤後行情、FinMind 歷史/營收/法人與個股新聞。尚未接入外部 AI API。</div>`;
 }
 function initChat(){
  addMsg("ai","你好，我是 Stock AI Demo。我的回答只會使用這個網站已載入的資料，沒有資料時會直接說明。");
