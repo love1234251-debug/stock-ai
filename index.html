@@ -123,6 +123,7 @@ canvas{max-width:100%}
 .prompt-list{display:grid;gap:8px}.prompt{padding:10px;border:1px solid var(--line);background:#0a1722;color:#c4d8e7;border-radius:10px;text-align:left}
 .api-list{display:grid;gap:8px}.api{display:flex;justify-content:space-between;gap:10px;padding:11px;border-radius:11px;background:#0a1722;border:1px solid rgba(255,255,255,.06)}
 .api-status{white-space:nowrap;font-weight:700}.api-status.connected{color:#81e9b4}.api-status.pending{color:#ffd773}
+.about-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:14px}.creator-card{padding:22px;position:relative;overflow:hidden}.creator-card:after{content:"朱";position:absolute;right:-8px;bottom:-38px;font-size:150px;font-weight:900;color:rgba(90,167,255,.045);pointer-events:none}.creator-label{color:#a9d0ff;font-size:12px;font-weight:800;letter-spacing:.12em}.creator-card h2{font-size:29px;margin:7px 0 9px}.creator-card p{max-width:760px;margin:0;color:#c8d8e4;line-height:1.75}.proof-list{display:grid;gap:9px;margin-top:17px}.proof-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border-radius:12px;background:#0a1722;border:1px solid rgba(255,255,255,.07)}.proof-link:hover{border-color:#4779a7}.proof-link small{display:block;color:var(--muted);margin-top:3px}.role-card{padding:18px}.role-card h3{margin:0 0 12px}.role-row{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07)}.role-row:last-child{border-bottom:0}.role-row b{display:block;margin-bottom:4px}.role-row span{color:var(--muted);font-size:12px;line-height:1.5}.timeline{display:grid;gap:9px}.release{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;padding:14px;border-radius:12px;background:#0a1722;border:1px solid rgba(255,255,255,.06)}.release-version{color:#a9d0ff;font-weight:800}.release-version small{display:block;color:var(--muted);font-weight:500;margin-top:4px}.release h3{font-size:15px;margin:0 0 5px}.release p{color:var(--muted);font-size:12px;line-height:1.55;margin:0}.footer a{color:#a9d0ff}.footer a:hover{text-decoration:underline}
 .empty{padding:36px;text-align:center;color:var(--muted)}
 .footer{max-width:1480px;margin:0 auto;padding:0 20px 30px;color:#6f8799;font-size:12px}
 
@@ -159,6 +160,7 @@ canvas{max-width:100%}
   #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai,.news-card{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}.news-item{grid-template-columns:1fr;padding:11px}.news-meta{grid-column:1}
   .filters{grid-template-columns:1fr 1fr;gap:8px}.filter{padding:10px}.ai-summary{padding:14px}.ai-points{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ai-point{padding:10px;font-size:13px}.spark{width:120px}
   .watch-card{padding:13px}.watch-card .big{font-size:22px}.login-gate{padding:22px 14px}.empty{padding:24px 12px}
+  .about-hero{grid-template-columns:1fr}.creator-card{padding:17px}.creator-card h2{font-size:24px}.creator-card p{font-size:13px}.role-card{padding:15px}.release{grid-template-columns:78px minmax(0,1fr);gap:10px;padding:12px}.proof-link{padding:11px}
   .table-wrap{overflow:visible}.table-wrap table{display:block;min-width:0}.table-wrap thead{display:none}.table-wrap tbody{display:grid;gap:8px}.table-wrap tr{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 14px;width:100%;padding:12px;background:#0a1722;border:1px solid rgba(255,255,255,.07);border-radius:12px}
   .table-wrap td{display:flex;min-width:0;flex-direction:column;gap:3px;padding:0;border:0;text-align:left;font-size:13px;overflow-wrap:anywhere}.table-wrap td::before{content:attr(data-label);color:var(--muted);font-size:10px;line-height:1.2}.table-wrap td:first-child{grid-column:1/-1;padding-right:34px}.table-wrap td:first-child::before{display:none}.table-wrap td[data-label=""]{position:absolute;right:10px;top:8px;width:auto;padding:0}.table-wrap td.table-empty-cell{position:static;grid-column:1/-1;width:100%;padding:18px 8px}.table-wrap td.table-empty-cell::before{display:none}
   .mobile-more-backdrop{position:fixed;z-index:48;inset:0;background:rgba(2,7,12,.58);backdrop-filter:blur(3px)}.mobile-more-backdrop.open{display:block}
@@ -294,6 +296,37 @@ canvas{max-width:100%}
         </div>
       </div>
     </section>
+
+    <section class="page" id="page-about">
+      <div class="page-head"><div><h1>關於 Stock AI</h1><p>作品歸屬、開發方式與版本紀錄</p></div><span class="pill">Version 1.4.0</span></div>
+      <div class="about-hero">
+        <div class="card creator-card">
+          <div class="creator-label">PRODUCT OWNER &amp; DEVELOPER</div>
+          <h2>開發者：朱宏勳</h2>
+          <p>Stock AI 由朱宏勳提出產品構想、規劃功能與介面、選擇資料來源，並主導測試、除錯及公開部署。開發過程使用 AI 協作完成部分程式實作與技術排錯；所有功能取捨與驗收由開發者決定。</p>
+          <div class="proof-list">
+            <a class="proof-link" href="https://github.com/love1234251-debug/stock-ai" target="_blank" rel="noopener noreferrer"><span><b>GitHub 原始碼與提交紀錄</b><small>love1234251-debug / stock-ai</small></span><b>↗</b></a>
+            <a class="proof-link" href="https://stock-ai-tw.vercel.app/" target="_blank" rel="noopener noreferrer"><span><b>Vercel 公開部署</b><small>stock-ai-tw.vercel.app</small></span><b>↗</b></a>
+          </div>
+        </div>
+        <div class="card role-card">
+          <h3>實際開發內容</h3>
+          <div class="role-row"><b>產品與介面</b><span>台股分析流程、App 式手機版、功能優先順序</span></div>
+          <div class="role-row"><b>資料整合</b><span>TWSE 盤後行情、FinMind 歷史／營收／法人與新聞</span></div>
+          <div class="role-row"><b>測試與除錯</b><span>iPhone 實機檢查、手機溢位、K 線與卡片調整</span></div>
+          <div class="role-row"><b>發布維護</b><span>GitHub 版本管理、Vercel 自動部署與線上驗證</span></div>
+        </div>
+      </div>
+      <div class="card pad" style="margin-top:14px">
+        <div class="section-title"><h2>版本紀錄</h2><span class="muted">可由 GitHub 提交紀錄核對</span></div>
+        <div class="timeline">
+          <div class="release"><div class="release-version">v1.4.0<small>2026-08-27</small></div><div><h3>開發者與作品證明</h3><p>新增作品歸屬、開發分工、GitHub 原始碼及公開部署連結。</p></div></div>
+          <div class="release"><div class="release-version">v1.3.0<small>2026-08-27</small></div><div><h3>個股新聞 API</h3><p>串接 FinMind 個股新聞，加入來源、日期、原文連結與因果關係提醒。</p></div></div>
+          <div class="release"><div class="release-version">v1.2.0<small>2026-08-26</small></div><div><h3>iPhone 介面優化</h3><p>重做底部導覽、搜尋列、響應式表格、K 線尺寸與手機橫向溢位。</p></div></div>
+          <div class="release"><div class="release-version">v1.1.0<small>2026-08-25</small></div><div><h3>公開部署恢復</h3><p>重新連接 GitHub Repo 與 Vercel，自動部署至可分享的公開網址。</p></div></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="auth-overlay" id="authOverlay">
@@ -324,7 +357,7 @@ canvas{max-width:100%}
     <div class="mobile-more-grid" id="mobileMoreGrid"></div>
   </div>
   <div class="mobile-nav" id="mobileNav" aria-label="主要導覽"></div>
-  <footer class="footer">Stock AI Demo — 僅供研究與介面展示，不構成任何投資建議。行情與新聞皆標示資料來源與時間，使用前請自行查證。</footer>
+  <footer class="footer">Stock AI Demo — 由朱宏勳主導開發，AI 協作實作。僅供研究與介面展示，不構成任何投資建議。<br><a href="#" onclick="go('about');return false">查看作品與版本紀錄</a></footer>
 </div>
 
 <script>
@@ -341,9 +374,9 @@ const DATA = {
     {code:"3231",name:"緯創",industry:"AI伺服器",price:139.5,change:6,pct:4.49,open:134,high:141,low:133.5,volume:96800,ma20:128,ma60:119,rsi:72,macdCross:true,revenueYoY:32.5,volumeInc:63,foreign:7120,trust:1380,pe:19.4,yield:2.2,tech:93,fund:88,chip:91,momentum:96,support:130,resistance:145,trend:"強勢多頭",short:"強勢但偏熱",chipText:"法人明顯買超",fundText:"AI 伺服器需求推升營收",risk:"RSI 高於 70，短線過熱且波動可能加大"}
   ]
 };
-const navs=[["home","首頁","⌂"],["market","市場","▦"],["screener","選股","⌁"],["watchlist","自選股","★"],["portfolio","投資組合","◫"],["ai","AI研究室","✦"]];
+const navs=[["home","首頁","⌂"],["market","市場","▦"],["screener","選股","⌁"],["watchlist","自選股","★"],["portfolio","投資組合","◫"],["ai","AI研究室","✦"],["about","關於作品","ⓘ"]];
 const mobilePrimaryIds=["home","market","screener","watchlist"];
-const mobileMoreIds=new Set(["portfolio","ai"]);
+const mobileMoreIds=new Set(["portfolio","ai","about"]);
 const NEWS={code:null,items:[],loading:false,error:null};
 const LIVE={mode:"demo",provider:"Demo",asOf:null,universe:[],contexts:new Map(),syncing:false,error:null};
 let current="2330",period="D";
