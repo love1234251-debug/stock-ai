@@ -99,6 +99,7 @@ canvas{max-width:100%}
 .analysis-grid{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:14px}
 .analysis-card{padding:14px}.analysis-card .k{color:var(--muted);font-size:12px}.analysis-card .v{margin-top:7px;font-weight:700}
 .long-ai{margin-top:14px;padding:17px;line-height:1.75}
+.weekly-war-room{margin-top:14px;padding:17px}.weekly-lead{padding:14px;border-radius:13px;background:linear-gradient(135deg,rgba(90,167,255,.11),rgba(159,122,234,.08));border:1px solid rgba(90,167,255,.2);line-height:1.7}.weekly-lead b{color:#ddecff}.weekly-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:11px}.weekly-metric{padding:11px;background:#091722;border:1px solid rgba(255,255,255,.06);border-radius:11px}.weekly-metric small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.weekly-metric strong{font-size:16px}.weekly-section{margin-top:15px}.weekly-section h3{font-size:15px;margin:0 0 9px}.weekly-zones{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.weekly-zone{padding:10px;border-radius:11px;background:#091722;border:1px solid rgba(255,255,255,.06)}.weekly-zone small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.weekly-zone b{font-size:13px}.scenario-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.scenario{padding:13px;border-radius:12px;background:#091722;border:1px solid rgba(255,255,255,.07)}.scenario.green{border-color:rgba(34,199,122,.26)}.scenario.yellow{border-color:rgba(246,196,83,.26)}.scenario.red{border-color:rgba(255,77,90,.26)}.scenario h4{margin:0 0 7px;font-size:14px}.scenario p{margin:0;color:#b9cbd8;font-size:12px;line-height:1.6}.weekly-score-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.weekly-score{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;padding:10px;border-radius:10px;background:#091722;font-size:12px}.weekly-score .bar{grid-column:1/-1}.stage-road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.stage{position:relative;padding:12px;border-radius:11px;background:#091722;border:1px solid rgba(255,255,255,.06)}.stage small{display:block;color:#a9d0ff;font-size:10px;margin-bottom:5px}.stage b{display:block}.stage span{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:5px}.weekly-note{margin-top:12px;color:var(--muted);font-size:10px;line-height:1.55}
 .news-card{margin-top:14px;padding:17px}.news-list{display:grid;gap:9px}.news-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 14px;padding:12px;border-radius:12px;background:#0a1722;border:1px solid rgba(255,255,255,.06)}.news-item a{font-weight:700;line-height:1.45}.news-item a:hover{color:#a9d0ff}.news-meta{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:11px}.news-note{margin-top:10px;color:var(--muted);font-size:11px;line-height:1.5}
 .filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .filter{padding:12px;background:#0a1722;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
@@ -157,7 +158,7 @@ canvas{max-width:100%}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px;gap:8px}.stat{padding:10px}.stat .v{font-size:14px;margin-top:4px}#stockStats .stat:last-child:nth-child(odd){grid-column:1/-1}
   .stock-head{gap:10px}.stock-title{gap:8px;flex-wrap:wrap}.stock-title h1{font-size:22px}.quote{gap:8px}.quote .price{font-size:29px}.stock-head>.actions{width:100%}.stock-head>.actions .btn{flex:1;padding:8px}
   .stock-layout,.stock-layout>*{width:100%;min-width:0;max-width:100%}.stock-layout{margin-top:10px;grid-template-columns:minmax(0,1fr)}.chart-card,.score-card{min-width:0;max-width:100%;overflow:hidden}.chart-card{padding:10px}.chart-toolbar{min-width:0;max-width:100%;overflow:hidden;align-items:stretch;gap:7px;flex-direction:column}.seg{align-self:flex-start}.indicators{display:flex;flex-wrap:nowrap;width:100%;min-width:0;max-width:100%;max-height:none;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding-bottom:3px;scrollbar-width:none}.indicators::-webkit-scrollbar{display:none}.ind-btn{flex:0 0 auto;padding:6px 9px}
-  #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai,.news-card{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}.news-item{grid-template-columns:1fr;padding:11px}.news-meta{grid-column:1}
+  #kline{height:260px}.score-card{padding:12px}.score-ring{width:104px;height:104px;margin:4px auto 11px}.score-ring:after{inset:10px}.score-inner strong{font-size:28px}.score-row{margin:8px 0;font-size:13px}.long-ai,.weekly-war-room,.news-card{margin-top:10px;padding:13px;font-size:13px;line-height:1.65}.weekly-metrics{grid-template-columns:1fr 1fr}.weekly-zones{display:flex;overflow-x:auto;scrollbar-width:none;padding-bottom:3px}.weekly-zones::-webkit-scrollbar{display:none}.weekly-zone{min-width:132px}.scenario-grid,.stage-road{grid-template-columns:1fr}.weekly-score-grid{grid-template-columns:1fr}.news-item{grid-template-columns:1fr;padding:11px}.news-meta{grid-column:1}
   .filters{grid-template-columns:1fr 1fr;gap:8px}.filter{padding:10px}.ai-summary{padding:14px}.ai-points{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.ai-point{padding:10px;font-size:13px}.spark{width:120px}
   .watch-card{padding:13px}.watch-card .big{font-size:22px}.login-gate{padding:22px 14px}.empty{padding:24px 12px}
   .about-hero{grid-template-columns:1fr}.creator-card{padding:17px}.creator-card h2{font-size:24px}.creator-card p{font-size:13px}.role-card{padding:15px}.release{grid-template-columns:78px minmax(0,1fr);gap:10px;padding:12px}.proof-link{padding:11px}
@@ -242,6 +243,10 @@ canvas{max-width:100%}
       </div>
       <div class="grid analysis-grid" id="analysisGrid"></div>
       <div class="card long-ai" id="stockAiSummary"></div>
+      <div class="card weekly-war-room" id="weeklyWarRoom">
+        <div class="section-title"><h2>週K戰情室</h2><span class="demo-badge source-warn">等待資料</span></div>
+        <div class="empty">正在準備長週期技術分析</div>
+      </div>
       <div class="card news-card">
         <div class="section-title"><h2>相關新聞</h2><span class="demo-badge source-live">FinMind</span></div>
         <div class="news-list" id="stockNews"><div class="empty">開啟個股後載入相關新聞</div></div>
@@ -298,7 +303,7 @@ canvas{max-width:100%}
     </section>
 
     <section class="page" id="page-about">
-      <div class="page-head"><div><h1>關於 Stock AI</h1><p>作品歸屬、開發方式與版本紀錄</p></div><span class="pill">Version 1.4.0</span></div>
+      <div class="page-head"><div><h1>關於 Stock AI</h1><p>作品歸屬、開發方式與版本紀錄</p></div><span class="pill">Version 1.5.0</span></div>
       <div class="about-hero">
         <div class="card creator-card">
           <div class="creator-label">PRODUCT OWNER &amp; DEVELOPER</div>
@@ -320,6 +325,7 @@ canvas{max-width:100%}
       <div class="card pad" style="margin-top:14px">
         <div class="section-title"><h2>版本紀錄</h2><span class="muted">可由 GitHub 提交紀錄核對</span></div>
         <div class="timeline">
+          <div class="release"><div class="release-version">v1.5.0<small>2026-08-29</small></div><div><h3>週K戰情室</h3><p>新增長週期均線、週RSI、OBV、量能、關鍵價位帶、三種技術劇本、分項評分與四階段觀察路線。</p></div></div>
           <div class="release"><div class="release-version">v1.4.0<small>2026-08-27</small></div><div><h3>開發者與作品證明</h3><p>新增作品歸屬、開發分工、GitHub 原始碼及公開部署連結。</p></div></div>
           <div class="release"><div class="release-version">v1.3.0<small>2026-08-27</small></div><div><h3>個股新聞 API</h3><p>串接 FinMind 個股新聞，加入來源、日期、原文連結與因果關係提醒。</p></div></div>
           <div class="release"><div class="release-version">v1.2.0<small>2026-08-26</small></div><div><h3>iPhone 介面優化</h3><p>重做底部導覽、搜尋列、響應式表格、K 線尺寸與手機橫向溢位。</p></div></div>
@@ -378,6 +384,7 @@ const navs=[["home","首頁","⌂"],["market","市場","▦"],["screener","選�
 const mobilePrimaryIds=["home","market","screener","watchlist"];
 const mobileMoreIds=new Set(["portfolio","ai","about"]);
 const NEWS={code:null,items:[],loading:false,error:null};
+const WEEKLY={cache:new Map(),loading:new Set(),errors:new Map()};
 const LIVE={mode:"demo",provider:"Demo",asOf:null,universe:[],contexts:new Map(),syncing:false,error:null};
 let current="2330",period="D";
 let activeIndicators=new Set(["MA5","MA20","MA60","成交量"]);
@@ -422,7 +429,7 @@ function go(id){
   window.scrollTo({top:0,behavior:"smooth"});
   if(id==="stock") setTimeout(drawKline,30);
 }
-function openStock(code){current=code;renderStock();go("stock");loadStockContext(code);loadStockNews(code)}
+function openStock(code){current=code;renderStock();go("stock");loadStockContext(code);loadWeeklyHistory(code);loadStockNews(code)}
 function toggleMobileMore(){
   const sheet=$("#mobileMoreSheet"),backdrop=$("#mobileMoreBackdrop"),button=$("[data-nav='more']"),open=!sheet.classList.contains("open");
   sheet.classList.toggle("open",open);backdrop.classList.toggle("open",open);sheet.setAttribute("aria-hidden",String(!open));backdrop.setAttribute("aria-hidden",String(!open));button?.setAttribute("aria-expanded",String(open));
@@ -505,7 +512,7 @@ function rsi14(vals){if(vals.length<15)return null;let gains=0,losses=0;for(let 
 function aggregateHistory(hist,p){
  if(p==="D")return hist;
  const groups=[];let key=null,g=null;
- hist.forEach(d=>{let dt=new Date(d.date+"T00:00:00");let k;if(p==="M")k=d.date.slice(0,7);else{let x=new Date(dt);x.setDate(x.getDate()-((x.getDay()+6)%7));k=x.toISOString().slice(0,10)}
+ hist.forEach(d=>{let dt=new Date(d.date+"T00:00:00Z");let k;if(p==="M")k=d.date.slice(0,7);else{let x=new Date(dt);x.setUTCDate(x.getUTCDate()-((x.getUTCDay()+6)%7));k=x.toISOString().slice(0,10)}
   if(k!==key){g={date:d.date,o:d.o,h:d.h,l:d.l,c:d.c,v:d.v};groups.push(g);key=k}else{g.h=Math.max(g.h,d.h);g.l=Math.min(g.l,d.l);g.c=d.c;g.v+=d.v;g.date=d.date}});return groups
 }
 function computeContext(s,ctx){
@@ -538,7 +545,7 @@ async function syncOfficialData(){
   const originals=new Map(DATA.stocks.map(x=>[x.code,x]));LIVE.universe=j.stocks.map(x=>{let base=originals.get(x.code)||{code:x.code,name:x.name,industry:"—",tech:50,fund:50,chip:50,momentum:50};Object.assign(base,x,{dataSource:"TWSE",analysisReady:false});return base});
   DATA.stocks.forEach(s=>{let x=LIVE.universe.find(a=>a.code===s.code);if(x)Object.assign(s,x)});Object.assign(DATA.market,j.market);
   badge.textContent="TWSE 官方盤後";badge.className="demo-badge source-live";txt.textContent=`✓ 已載入 TWSE 官方盤後資料｜資料日 ${LIVE.asOf}。歷史 K 線、月營收與法人資料在開啟個股時由 FinMind 載入。`;
-  renderHome();renderHomeWatch();renderMarket();renderWatch();renderPortfolio();renderStock();runScreen();loadStockContext(current);
+  renderHome();renderHomeWatch();renderMarket();renderWatch();renderPortfolio();renderStock();runScreen();loadStockContext(current);loadWeeklyHistory(current);
  }catch(e){LIVE.mode="demo";LIVE.error=e.message;badge.textContent="DEMO 備援";badge.className="demo-badge source-error";txt.textContent=`⚠️ 雲端資料來源暫時無法連線，已切換 Demo 備援。原因：${e.message}`}
  finally{LIVE.syncing=false}
 }
@@ -548,8 +555,66 @@ async function loadStockContext(code){
  try{let r=await fetch('/api/context?stock_id='+encodeURIComponent(code),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);let ctx=await r.json();if(!ctx.ok)throw new Error(ctx.error||'FinMind 失敗');LIVE.contexts.set(code,ctx);computeContext(s,ctx);renderHome();renderHomeWatch();renderWatch();runScreen();if(current===code)renderStock()}
  catch(e){if(current===code){badge.textContent="TWSE 快照";badge.className="demo-badge source-warn";$("#stockAiSummary").innerHTML=`<div class="section-title"><h2>分析資料不足</h2><span class="demo-badge source-warn">Snapshot only</span></div><div>已取得 TWSE 官方盤後價格，但 FinMind 歷史/營收/法人資料目前無法取得，因此不產生技術與籌碼推論。${e.message}</div>`}}
 }
+async function loadWeeklyHistory(code){
+ if(LIVE.mode!=="official")return;const s=stock(code);if(!s)return;
+ if(WEEKLY.cache.has(code)){s.longHistory=WEEKLY.cache.get(code).history;s.longHistoryMeta=WEEKLY.cache.get(code);if(current===code)renderStock();return}
+ if(WEEKLY.loading.has(code))return;WEEKLY.loading.add(code);WEEKLY.errors.delete(code);if(current===code)renderWeeklyWarRoom(s);
+ try{const response=await fetch('/api/weekly?stock_id='+encodeURIComponent(code));const payload=await response.json();if(!response.ok||!payload.ok)throw new Error(payload.error||'長期歷史資料無法取得');if(!Array.isArray(payload.history)||payload.history.length<300)throw new Error('長期歷史資料筆數不足');WEEKLY.cache.set(code,payload);s.longHistory=payload.history;s.longHistoryMeta=payload}
+ catch(error){WEEKLY.errors.set(code,error.message||String(error))}
+ finally{WEEKLY.loading.delete(code);if(current===code)renderStock()}
+}
+function avgAt(values,n,end=values.length){if(!Array.isArray(values)||end<n)return null;return values.slice(end-n,end).reduce((sum,value)=>sum+value,0)/n}
+function rsiPeriod(values,n){if(values.length<n+1)return null;let gains=0,losses=0;for(let i=1;i<=n;i++){const change=values[i]-values[i-1];if(change>0)gains+=change;else losses-=change}gains/=n;losses/=n;for(let i=n+1;i<values.length;i++){const change=values[i]-values[i-1],gain=change>0?change:0,loss=change<0?-change:0;gains=((gains*(n-1))+gain)/n;losses=((losses*(n-1))+loss)/n}if(losses===0)return 100;return 100-(100/(1+(gains/losses)))}
+function limitScore(value){return Math.max(0,Math.min(100,Math.round(value)))}
+function techPrice(value){if(!Number.isFinite(value))return"—";return value>=100?value.toFixed(1):value.toFixed(2)}
+function priceBand(value,width=.012){return `${techPrice(value*(1-width))}–${techPrice(value*(1+width))}`}
+function compactNumber(value){return new Intl.NumberFormat('zh-TW',{notation:'compact',maximumFractionDigits:1}).format(value)}
+function distinctLevels(values,descending=false){const sorted=values.filter(Number.isFinite).sort((a,b)=>descending?b-a:a-b),result=[];sorted.forEach(value=>{if(!result.some(existing=>Math.abs(existing-value)/Math.max(1,value)<.025))result.push(value)});return result}
+function computeWeeklyAnalysis(s){
+ const history=s.longHistory||[];const weeks=aggregateHistory(history,"W");if(weeks.length<61)return null;
+ const closes=weeks.map(item=>item.c),volumes=weeks.map(item=>item.v),last=weeks.at(-1),previous=weeks.at(-2);
+ const ma5=avgAt(closes,5),ma10=avgAt(closes,10),ma20=avgAt(closes,20),ma20Previous=avgAt(closes,20,closes.length-1),rsi5=rsiPeriod(closes,5),rsi10=rsiPeriod(closes,10),avgVolume20=avgAt(volumes,20),volumeRatio=avgVolume20?last.v/avgVolume20:1;
+ const obv=[0];for(let i=1;i<weeks.length;i++){const direction=weeks[i].c>weeks[i-1].c?1:weeks[i].c<weeks[i-1].c?-1:0;obv.push(obv.at(-1)+(direction*weeks[i].v))}
+ const obvNow=obv.at(-1),obv30=avgAt(obv,30),obv60=avgAt(obv,60),ma20Up=ma20>ma20Previous;
+ const recent=weeks.slice(-104),pivotLows=[],pivotHighs=[];
+ for(let i=2;i<recent.length-2;i++){const item=recent[i],neighbors=recent.slice(i-2,i+3);if(item.l===Math.min(...neighbors.map(x=>x.l)))pivotLows.push(item.l);if(item.h===Math.max(...neighbors.map(x=>x.h)))pivotHighs.push(item.h)}
+ const supports=distinctLevels([...pivotLows,ma5,ma10,ma20].filter(value=>value<last.c*1.005),true),resistances=distinctLevels(pivotHighs.filter(value=>value>last.c*1.01));
+ const support1=supports[0]||ma10,support2=supports[1]||ma20,resistance1=resistances[0]||last.c*1.06,resistance2=resistances[1]||Math.max(resistance1*1.06,last.c*1.12),high52=Math.max(...weeks.slice(-52).map(item=>item.h)),stage4=Math.max(high52,resistance2*1.06);
+ const bullishOrder=last.c>ma5&&ma5>ma10&&ma10>ma20,bearishOrder=last.c<ma5&&ma5<ma10&&ma10<ma20;
+ const trend=bullishOrder?"中期多頭排列":bearishOrder?"中期空頭排列":last.c>ma20&&ma20Up?"多頭趨勢中的整理":"週線震盪整理";
+ const obvState=obvNow>obv30&&obv30>obv60?"OBV 多頭排列":obvNow<obv30&&obv30<obv60?"OBV 偏空":"OBV 高檔／區間整理";
+ const weeklyReturn=previous?.c?((last.c/previous.c)-1)*100:0;
+ const scores={
+  "週K趨勢":limitScore(50+(last.c>ma20?20:-20)+(ma20Up?15:-15)+(weeklyReturn>0?10:-5)),
+  "均線結構":limitScore([last.c>ma5,ma5>ma10,ma10>ma20,ma20Up].filter(Boolean).length*25),
+  "RSI動能":limitScore(rsi10>=50&&rsi10<=70?90:rsi10>70&&rsi10<=80?70:rsi10>=40?65:35),
+  "OBV籌碼":limitScore(obvNow>obv30&&obv30>obv60?92:obvNow>obv60?72:obvNow<obv30&&obv30<obv60?32:58),
+  "成交量":limitScore(weeklyReturn>0&&volumeRatio>=1.2?90:weeklyReturn<0&&volumeRatio>=1.4?35:volumeRatio>=.75?70:58),
+  "壓力空間":limitScore(((resistance1/last.c)-1)*100>=10?90:((resistance1/last.c)-1)*100>=5?75:((resistance1/last.c)-1)*100>=2?60:45)
+ };
+ const overall=limitScore(Object.values(scores).reduce((sum,value)=>sum+value,0)/Object.keys(scores).length);
+ return {weeks,last,ma5,ma10,ma20,ma20Up,rsi5,rsi10,avgVolume20,volumeRatio,obvNow,obv30,obv60,obvState,support1,support2,resistance1,resistance2,high52,stage4,trend,bullishOrder,bearishOrder,weeklyReturn,scores,overall};
+}
+function renderWeeklyWarRoom(s){
+ const el=$("#weeklyWarRoom");if(!el)return;
+ if(WEEKLY.loading.has(s.code)){el.innerHTML=`<div class="section-title"><h2>週K戰情室</h2><span class="demo-badge source-warn">FinMind 載入中</span></div><div class="empty">正在取得三年歷史資料並計算週K、RSI 與 OBV…</div>`;return}
+ const analysis=computeWeeklyAnalysis(s);
+ if(!analysis){const reason=WEEKLY.errors.get(s.code);el.innerHTML=`<div class="section-title"><h2>週K戰情室</h2><span class="demo-badge source-warn">${reason?"暫時無法分析":"等待資料"}</span></div><div class="empty">${reason?"長期歷史資料暫時無法取得，稍後重新開啟個股頁即可重試。":"載入長期 FinMind 資料後，將顯示完整週K戰情分析。"}</div>`;return}
+ const a=analysis,arrow=value=>value?"↗":"↘",scores=Object.entries(a.scores),scoreLabel=value=>value>=85?"強":value>=70?"偏多":value>=55?"中性":"偏弱";
+ const metrics=[["最新週收盤",techPrice(a.last.c),a.last.date],["5／10／20週線",`${techPrice(a.ma5)}／${techPrice(a.ma10)}／${techPrice(a.ma20)}`,`20週線 ${arrow(a.ma20Up)}`],["RSI 5／10週",`${a.rsi5.toFixed(1)}／${a.rsi10.toFixed(1)}`,a.rsi10>=50?"動能位於多方區":"動能低於50"],["週成交量",`${compactNumber(a.last.v)} 張`,`${a.volumeRatio.toFixed(2)} × 20週均量`],["OBV",compactNumber(a.obvNow),a.obvState],["週K評分",`${a.overall}／100`,`${grade(a.overall)} · 規則計算`],["第一支撐",priceBand(a.support1),"跌破需提高警戒"],["突破關卡",priceBand(a.resistance1),"配合量能確認"]];
+ const lead=a.bullishOrder?`股價與週均線呈現 <b>收盤價 &gt; 5週線 &gt; 10週線 &gt; 20週線</b>，屬於完整多頭排列。`:`目前定義為 <b>${a.trend}</b>；週收盤 ${techPrice(a.last.c)}，20週線 ${techPrice(a.ma20)} ${arrow(a.ma20Up)}。`;
+ const volumeText=a.volumeRatio<.8?"量能低於20週均量，較接近縮量整理；突破時仍需補量確認。":a.volumeRatio>=1.2?"量能高於20週均量，應搭配價格方向判斷是否為有效攻擊或放量轉弱。":"量能接近20週平均，尚未出現明確放量訊號。";
+ el.innerHTML=`<div class="section-title"><h2>週K戰情室</h2><span class="demo-badge source-live">FinMind · ${escapeHtml(a.last.date)}</span></div>
+ <div class="weekly-lead">${lead} RSI 10週為 <b>${a.rsi10.toFixed(1)}</b>，${escapeHtml(a.obvState)}；${volumeText}</div>
+ <div class="weekly-metrics">${metrics.map(([label,value,note])=>`<div class="weekly-metric"><small>${label}</small><strong>${value}</strong><small>${note}</small></div>`).join("")}</div>
+ <div class="weekly-section"><h3>五個關鍵價位帶</h3><div class="weekly-zones">${[["中期生命線",a.ma20],["第一防守區",a.support1],["目前攻防區",a.last.c],["突破關卡",a.resistance1],["下一壓力",a.resistance2]].map(([label,value])=>`<div class="weekly-zone"><small>${label}</small><b>${priceBand(value)}</b></div>`).join("")}</div></div>
+ <div class="weekly-section"><h3>A／B／C 三種技術劇本</h3><div class="scenario-grid"><div class="scenario green"><h4>🟢 A級：突破型</h4><p>週K站穩 ${techPrice(a.resistance1)}，且週量高於20週均量；若 OBV 同步走高，下一階段觀察 ${techPrice(a.resistance2)}。</p></div><div class="scenario yellow"><h4>🟡 B級：震盪蓄力</h4><p>在 ${techPrice(a.support1)}～${techPrice(a.resistance1)} 間整理。守住10週線 ${techPrice(a.ma10)} 且 OBV 未跌破30週均線，仍視為正常蓄勢。</p></div><div class="scenario red"><h4>🔴 C級：轉弱</h4><p>跌破 ${techPrice(a.support1)} 且5週線下彎需提高警戒；若再失守20週線 ${techPrice(a.ma20)}，中期結構需要重新評估。</p></div></div></div>
+ <div class="weekly-section"><h3>技術面分項評分</h3><div class="weekly-score-grid">${scores.map(([label,value])=>`<div class="weekly-score"><span>${label}</span><b>${value} · ${scoreLabel(value)}</b><div class="bar"><i style="width:${value}%"></i></div></div>`).join("")}</div></div>
+ <div class="weekly-section"><h3>四階段觀察路線</h3><div class="stage-road">${[["第1階段",a.last.c,"目前攻防"],["第2階段",a.resistance1,"突破確認"],["第3階段",a.resistance2,"下一壓力"],["第4階段",a.stage4,"前高／延伸目標"]].map(([step,value,note])=>`<div class="stage"><small>${step}</small><b>${techPrice(value)}</b><span>${note}；需逐段以週收盤、量能與 OBV 驗證。</span></div>`).join("")}</div></div>
+ <div class="weekly-note">分析依據：FinMind TaiwanStockPrice 長期歷史資料，以週K彙整後計算5／10／20週均線、RSI、成交量與OBV。價位帶與劇本屬規則式技術分析，不代表未來必然走勢；OBV絕對值會受資料起始日影響，應以方向與均線關係為主。</div>`;
+}
 function candleData(s,p){
- if(s.realHistory?.length){let arr=aggregateHistory(s.realHistory,p);let n=p==="D"?120:p==="W"?80:60;return arr.slice(-n)}
+ const source=p==="W"&&s.longHistory?.length?s.longHistory:s.realHistory;if(source?.length){let arr=aggregateHistory(source,p);let n=p==="D"?120:p==="W"?80:60;return arr.slice(-n)}
  const n=p==="D"?62:p==="W"?48:36, mult=p==="D"?1:p==="W"?3.2:6.8, arr=[]; let v=s.price*(.83+((parseInt(s.code)%7)/100));
  for(let i=0;i<n;i++){let wave=Math.sin(i*.34+(parseInt(s.code)%5))*s.price*.008*mult*.35;let drift=(s.price-v)/(n-i+4);let o=v+wave*.35;let c=o+Math.sin(i*.77+1.4)*s.price*.006*mult*.25+drift;let hi=Math.max(o,c)+s.price*(.006+.003*Math.abs(Math.sin(i)))*Math.sqrt(mult);let lo=Math.min(o,c)-s.price*(.005+.003*Math.abs(Math.cos(i)))*Math.sqrt(mult);let vol=s.volume*(.55+.8*Math.abs(Math.sin(i*.45+2)));arr.push({o,c,h:hi,l:lo,v:vol});v=c}
  arr[n-1]={o:s.open,c:s.price,h:s.high,l:s.low,v:s.volume};return arr
@@ -574,7 +639,7 @@ function renderStock(){
   $("#stockAiSummary").innerHTML=`<div class="section-title"><h2>AI 綜合摘要</h2><span class="demo-badge ${real?"source-live":""}">${real?"依真實資料計算":"依 Demo 數據"}</span></div>
   <div>${s.name}（${s.code}）目前綜合分數為 <b>${total}</b>，評級「${grade(total)}」。技術面：股價 ${s.price>s.ma20?"站上":"低於"} MA20（${Number(s.ma20).toFixed(2)}），RSI ${s.rsi}，MACD ${s.macdBullish||s.macdCross?"位於訊號線上方":"位於訊號線下方"}。基本面：${s.revenueYoY==null?"最新月營收年增資料不足":`最新月營收年增率 ${s.revenueYoY.toFixed(1)}%`}；籌碼面：近5交易日外資 ${s.foreign>0?"買超":"賣超"} ${fmt(Math.abs(s.foreign||0))} 張、投信 ${s.trust>0?"買超":"賣超"} ${fmt(Math.abs(s.trust||0))} 張。主要支撐約 ${Number(s.support).toFixed(2)}、壓力約 ${Number(s.resistance).toFixed(2)}。風險：${s.risk}。</div>`;
  }
- updateStockStar(); renderIndicatorBtns();setTimeout(drawKline,20);
+ renderWeeklyWarRoom(s);updateStockStar();renderIndicatorBtns();setTimeout(drawKline,20);
 }
 function renderIndicatorBtns(){
  const inds=["MA5","MA10","MA20","MA60","MA120","MA240","EMA","成交量","MACD","RSI","KD","布林通道"];
