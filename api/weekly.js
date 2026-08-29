@@ -23,7 +23,8 @@ function number(value) {
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ ok: false, error: 'Method not allowed' });
-  const stockId = String(req.query.stock_id || '').trim().toUpperCase();
+  const requestUrl = new URL(req.url || '/', 'https://stock-ai.local');
+  const stockId = String(requestUrl.searchParams.get('stock_id') || '').trim().toUpperCase();
   if (!/^[0-9A-Z]{4,6}$/.test(stockId)) {
     return res.status(400).json({ ok: false, error: 'Valid stock_id is required' });
   }
