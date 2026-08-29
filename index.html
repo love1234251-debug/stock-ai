@@ -579,7 +579,7 @@ function computeWeeklyAnalysis(s){
  const recent=weeks.slice(-104),pivotLows=[],pivotHighs=[];
  for(let i=2;i<recent.length-2;i++){const item=recent[i],neighbors=recent.slice(i-2,i+3);if(item.l===Math.min(...neighbors.map(x=>x.l)))pivotLows.push(item.l);if(item.h===Math.max(...neighbors.map(x=>x.h)))pivotHighs.push(item.h)}
  const supports=distinctLevels([...pivotLows,ma5,ma10,ma20].filter(value=>value<last.c*1.005),true),resistances=distinctLevels(pivotHighs.filter(value=>value>last.c*1.01));
- const support1=supports[0]||ma10,support2=supports[1]||ma20,resistance1=resistances[0]||last.c*1.06,resistance2=resistances[1]||Math.max(resistance1*1.06,last.c*1.12),high52=Math.max(...weeks.slice(-52).map(item=>item.h)),stage4=Math.max(high52,resistance2*1.06);
+ const support1=supports[0]||ma10,support2=supports[1]||ma20,resistance1=resistances[0]||last.c*1.06,high52=Math.max(...weeks.slice(-52).map(item=>item.h)),nextPivot=resistances[1]||Math.max(high52,resistance1*1.12),resistance2=nextPivot/resistance1>1.14?resistance1*1.08:nextPivot,stage4=Math.max(high52,nextPivot,resistance2*1.06);
  const bullishOrder=last.c>ma5&&ma5>ma10&&ma10>ma20,bearishOrder=last.c<ma5&&ma5<ma10&&ma10<ma20;
  const trend=bullishOrder?"中期多頭排列":bearishOrder?"中期空頭排列":last.c>ma20&&ma20Up?"多頭趨勢中的整理":"週線震盪整理";
  const obvState=obvNow>obv30&&obv30>obv60?"OBV 多頭排列":obvNow<obv30&&obv30<obv60?"OBV 偏空":"OBV 高檔／區間整理";
